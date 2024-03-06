@@ -283,11 +283,14 @@ setInterval(()=>{
 //  paginate calcule
  let png=imgCarde.length/6;
    s='<a href="#" class="w3-button"><<</a>';
-   console.log(png);
+   console.log(imgCarde.length/parseInt(imgcountstorage));
    let index = 0
  for (index; index < png; index++) { 
   let k=index+1;
-s+='<a href="#" class="w3-button">'+k+'</a>'; 
+  if(imgcountstorage==0 && k==1) s+='<a href="#" class="btn  btn-secondary"  >'+k+'</a>'; 
+ else if((parseInt(imgcountstorage)+1)/6<=k && (parseInt(imgcountstorage)+1)/6>k-1)
+s+='<a href="#" class="btn   btn-secondary" >'+k+'</a>'; 
+else s+='<a href="#" class="w3-button"  >'+k+'</a>'; 
  } s+='<a href="#" class="w3-button">>></a>';
  document.getElementById('paginate').innerHTML=s;
  // end paginate calcule
