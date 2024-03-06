@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B-INFO</title>
     <link rel="icon" href="./images/b-info-logo.jpg" sizes="32x32" type="image/jpg" >
-    <link rel="stylesheet" href="./bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bootstrap.min.css">
     <link rel="stylesheet" href="./index.css">
-    <script src="./bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <script src="./bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body  >
     <head>
+      <!-- début  nav 1 -->
         <nav class="navbar navbar-secondary bg-secondary ">
             <div class="container"> 
                <a href="" id="logo"> <img src="./images/b-info-logo.jpg" alt="" width="80" height="50" style="border-radius: 50%"></a>
@@ -39,19 +40,8 @@
             </div>
 
           </nav>
-          <!-- <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-              <h5 class="text-white h4">Collapsed content</h5>
-              <span class="text-muted">Toggleable via the navbar brand.</span>
-            </div>
-          </div>
-          <nav class="navbar navbar-dark bg-dark">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
-          </nav> -->
+          <!-- fin  nav 1 -->
+     <!-- début  nav 2 -->
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">B-INFO</a>
@@ -87,166 +77,32 @@
             </div>
 
           </nav>
+          <!-- fin  nav 1 -->
     </head>
     <main  >
+      <!-- section image 1 -->
 <div >
   <div id="card2" class="card" style=" width: 100% ;background-color: white;">
     <svg xmlns="http://www.w3.org/2000/svg" width="40" onClick="()=>fLeft()" id="left" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-
-      </svg> <img src="./B-info.jpg" class="card-img-top" alt="..." id="img1" /> <svg 
+    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>  </svg> 
+    <a href="" id="lien-pic"  ><img src="./B-info.jpg" class="card-img-top" alt="..." id="img1" /> </a>  
+    <svg 
       id="rigth" onClick="()=>fRigth()"   xmlns="http://www.w3.org/2000/svg" width="40"   fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
 
 
-    </svg>
-    <div class="card-body">
-      <a href="" id="lien-pic"  ><p class="card-text"></p></a>
-      <div id="point" style="text-align:center">  </div>
-    </div>
-    
-    
+    </svg> 
+      <div id="point" style="text-align:center">  </div>    
   </div>
-  <!-- end image -->
-   
-
-
-  <script>
-    let images= [{id:0,image:"./images/B-info.jpg",description:"<------- Marque de nos produits ------->",lien:"#"},{id:1,image:"./images/b-info-logo.jpg",description:"<------- Materials et accessoires ------->",lien:"./articles.html"},{id:3,image:"./images/logiciel.png",description:"<------- Logiciels ------->",lien:"./logiciels.html"},{id:4,image:"./images/maintenance.jfif",description:"<------- Service de maintenance informatique ------->",lien:"./maintenances.html"}];
-
- //image
- 
- 
-     
- 
-            let click=false;
-            let t=null;
-            let i=-1;
-           function b(){
-              t=new Date();
-            }
-document.getElementById("left").addEventListener("click",           
- function fLeft() {
-    s="";
-    console.log("left");
-  for(let i=images.length-1;i>-1;i--){
-     
-         s+='<span id="'+images[i].id+'"  style="background-color:gray;min-width:10px;border-radius:50%;color:gray;margin:1px">--</span> ';
-       }
-       document.getElementById('point').innerHTML=s;
-                    click=true;
-                    t=new Date();
-                    i++;
-                    
-                    if(i== images.length) i=0; let data=images[i];
-                     document.getElementById('img1').setAttribute('src', data.image); 
-                     document.getElementById('lien-pic').setAttribute('href', data.lien);
-                     document.getElementById('lien-pic').innerHTML='<p  class="card-text" >'+data.description+'</p>';
-                     document.getElementById(String(data.id) ).style.backgroundColor="black";
-                     document.getElementById(String(data.id) ).style.color="black";
-                     images.forEach(element => {
-                       if(element.id!=data.id) {document.getElementById(String(element.id)).style.backgroundColor="gray";document.getElementById(String(element.id)).style.color="gray";}
-                     });
-                 
-  
- } )  
-document.getElementById("rigth").addEventListener("click",     
- function fRigth() {
-  s="";
-  for(let i=0;i<images.length;i++){
-        
-         s+='<span id="'+images[i].id+'"  style="background-color:gray;min-width:10px;border-radius:50%;color:gray;margin:1px">--</span> ';
-       }
-       document.getElementById('point').innerHTML=s;
-                    click=true;
-                    t=new Date();
-                    i--;
-                    
-                    if(i<0 ) i=images.length-1; let data=images.find(e=>e.id==images[i].id);
-                     document.getElementById('img1').setAttribute('src', data.image); 
-                     document.getElementById('lien-pic').setAttribute('href',data.lien);
-                     document.getElementById('lien-pic').innerHTML='<p  class="card-text" >'+data.description+'</p>';
-                     document.getElementById(String(data.id) ).style.backgroundColor="black";
-                     document.getElementById(String(data.id) ).style.color="black";
-                     images.forEach(element => {
-                       if(element.id!=data.id) {document.getElementById(String(element.id)).style.backgroundColor="gray";document.getElementById(String(element.id)).style.color="gray";}
-                     });
-                 }
-)   
- 
-s="";
-       for(let i=0;i<images.length;i++){
-             
-              s+='<span id="'+images[i].id+'"  style="background-color:gray;min-width:10px;border-radius:50%;color:gray;margin:10px">--</span> ';
-            }
-            document.getElementById('point').innerHTML=s;    
-                     
-setInterval(()=>{
-                  s=""; 
-                  for(let i=0;i<images.length;i++){
-                        
-                         s+='<span id="'+images[i].id+'"  style="background-color:gray;min-width:10px;border-radius:50%;color:gray;margin:1px">--</span> ';
-                         
-                       }
-                if(click==false){
-                  i--;
-                          if(i<0 ) i=images.length-1;  let data=images.find(e=>e.id==images[i].id);
-                           document.getElementById('img1').setAttribute('src',data.image); 
-                           document.getElementById('lien-pic').setAttribute('href',data.lien );
-                           // document.getElementById('lien-pic').setAttribute('href',"/"+data[i].type+"/"+data[i].id);
-                           document.getElementById('lien-pic').innerHTML='<p  class="card-text" >'+data.description+'</p>'; 
-                           document.getElementById(String(data.id) ).style.backgroundColor="black";
-                           document.getElementById(String(data.id) ).style.color="black";
-                           images.forEach(element => {
-                             if(element.id!=data.id) {document.getElementById(String(element.id)).style.backgroundColor="gray";document.getElementById(String(element.id)).style.color="gray";}
-                           });
-                }
-                else{
-                  let d=new Date();
-                 let sD=d.getSeconds();
-                 let sT=t.getSeconds();
-                 let mD=d.getMinutes();
-                 let mT=t.getMinutes();
-                 let diff=0;
-                 if(mD>mT){
-                  diff=(60-sT)+sD;
-                 }
-                 else if(mD==mT){
-                  diff=sD-sT;
-                 }
-                 if(diff>=10) click=false;
-                }}
-                    ,3000);
-//fin images
-   </script>
-  </script>
+  <br>
 </div>
- 
-<div id="list">
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+  <!--  end section image 1 -->
+  <h5 style="margin-left: 4%;">Liste des articles</h5>
+<div id="list">   
 </div>
-<script>
- let imgCarde=        [{id:0,image:"./images/img1.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img2.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img2.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img3.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img4.jpg",description:"UNITE CENTRALE LENOVO",prix:0},{id:1,image:"./images/img5.jpg",description:"Disques dure SSD",prix:0},{id:1,image:"./images/img6.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img7.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img8.jpg",description:"Disques dure SSD",prix:0},{id:1,image:"./images/img9.jpg",description:"THINKPAD",prix:0},{id:1,image:"./images/img10.jpg",description:"HP",prix:0},{id:1,image:"./images/img11.jpg",description:"LENOVO",prix:0},{id:1,image:"./images/img12.jpg",description:"CARTES GRAPHIQUE",prix:0}];
-    let s="";
-imgCarde.forEach((elem)=>  {
-    s+='<div class="card" style="width: 18rem;padding:2px;margin:6px" id="cardslist'+elem.id+'"><img src="'+elem.image+'" class="card-img-top" alt="..."> <div class="card-body"><h6>'+elem.description+'</h6><p class="card-text">'+elem.prix+' DH</p><a href="#" class="btn btn-primary">Ajouter au panier</a></div></div>';
-})
-document.getElementById("list").innerHTML=s;
-console.log(s);
-document.getElementById("list").style.display="flex";
-
-document.getElementById("list").style.flexWrap="wrap";
-document.getElementById("list").style.justifyContent="space-around";
-</script>
- 
+<div class="w3-bar" id="paginate"></div>
   </main>
+  <br>
   <footer>
     <div class="card" style="width: 100%;background-color: gray; " >
       <div class="card-header" style="width: 100%;text-align: center;">
@@ -302,5 +158,138 @@ document.getElementById("list").style.justifyContent="space-around";
     } */
 </style>
 <script>
+//section image1
+  let images= [{id:0,image:"./images/B-info.jpg",lien:"#"},{id:1,image:"./images/b-info-logo.jpg",lien:"./articles.html"},{id:3,image:"./images/logiciel.png",lien:"./logiciels.html"},{id:4,image:"./images/maintenance.jfif",lien:"./maintenances.html"}];
 
-</script>
+          let click=false;
+          let t=null;
+          let i=-1;
+         function b(){
+            t=new Date();
+          }
+document.getElementById("left").addEventListener("click",           
+function fLeft() {
+  s="";
+  console.log("left");
+for(let i=images.length-1;i>-1;i--){
+   
+       s+='<span id="'+images[i].id+'"  style="background-color:gray;min-width:10px;border-radius:50%;color:gray;margin:1px">--</span> ';
+     }
+     document.getElementById('point').innerHTML=s;
+                  click=true;
+                  t=new Date();
+                  i++;
+                  
+                  if(i== images.length) i=0; let data=images[i];
+                   document.getElementById('img1').setAttribute('src', data.image); 
+                   document.getElementById('lien-pic').setAttribute('href', data.lien);
+                   document.getElementById(String(data.id) ).style.backgroundColor="black";
+                   document.getElementById(String(data.id) ).style.color="black";
+                   images.forEach(element => {
+                     if(element.id!=data.id) {document.getElementById(String(element.id)).style.backgroundColor="gray";document.getElementById(String(element.id)).style.color="gray";}
+                   });
+               
+
+} )  
+document.getElementById("rigth").addEventListener("click",     
+function fRigth() {
+s="";
+for(let i=0;i<images.length;i++){
+      
+       s+='<span id="'+images[i].id+'"  style="background-color:gray;min-width:10px;border-radius:50%;color:gray;margin:1px">--</span> ';
+     }
+     document.getElementById('point').innerHTML=s;
+                  click=true;
+                  t=new Date();
+                  i--;
+                  
+                  if(i<0 ) i=images.length-1; let data=images.find(e=>e.id==images[i].id);
+                   document.getElementById('img1').setAttribute('src', data.image); 
+                   document.getElementById('lien-pic').setAttribute('href',data.lien);
+                   document.getElementById(String(data.id) ).style.backgroundColor="black";
+                   document.getElementById(String(data.id) ).style.color="black";
+                   images.forEach(element => {
+                     if(element.id!=data.id) {document.getElementById(String(element.id)).style.backgroundColor="gray";document.getElementById(String(element.id)).style.color="gray";}
+                   });
+               }
+)   
+
+s="";
+     for(let i=0;i<images.length;i++){
+           
+            s+='<span id="'+images[i].id+'"  style="background-color:gray;min-width:10px;border-radius:50%;color:gray;margin:10px">--</span> ';
+          }
+          document.getElementById('point').innerHTML=s;    
+                   
+setInterval(()=>{
+                s=""; 
+                for(let i=0;i<images.length;i++){
+                      
+                       s+='<span id="'+images[i].id+'"  style="background-color:gray;min-width:10px;border-radius:50%;color:gray;margin:1px">--</span> ';
+                       
+                     }
+              if(click==false){
+                i--;
+                        if(i<0 ) i=images.length-1;  let data=images.find(e=>e.id==images[i].id);
+                         document.getElementById('img1').setAttribute('src',data.image); 
+                         document.getElementById('lien-pic').setAttribute('href',data.lien );
+                         document.getElementById(String(data.id) ).style.backgroundColor="black";
+                         document.getElementById(String(data.id) ).style.color="black";
+                         images.forEach(element => {
+                           if(element.id!=data.id) {document.getElementById(String(element.id)).style.backgroundColor="gray";document.getElementById(String(element.id)).style.color="gray";}
+                         });
+              }
+              else{
+                let d=new Date();
+               let sD=d.getSeconds();
+               let sT=t.getSeconds();
+               let mD=d.getMinutes();
+               let mT=t.getMinutes();
+               let diff=0;
+               if(mD>mT){
+                diff=(60-sT)+sD;
+               }
+               else if(mD==mT){
+                diff=sD-sT;
+               }
+               if(diff>=10) click=false;
+              }}
+                  ,3000);
+//fin section images 1
+ </script>
+ <!-- section articles -->
+ <script>
+  let imgCarde=        [{id:0,image:"./images/img1.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img2.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img2.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img3.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img4.jpg",description:"UNITE CENTRALE LENOVO",prix:0},{id:1,image:"./images/img5.jpg",description:"Disques dure SSD",prix:0},{id:1,image:"./images/img6.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img7.jpg",description:"PC HP",prix:0},{id:1,image:"./images/img8.jpg",description:"Disques dure SSD",prix:0},{id:1,image:"./images/img9.jpg",description:"THINKPAD",prix:0},{id:1,image:"./images/img10.jpg",description:"HP",prix:0},{id:1,image:"./images/img11.jpg",description:"LENOVO",prix:0},{id:1,image:"./images/img12.jpg",description:"CARTES GRAPHIQUE",prix:0}];
+ let s="";
+ let imgcount=0;
+ let imgcountstorage=sessionStorage.getItem("imgcountstorage");
+ console.log(imgcountstorage);
+ if(imgcountstorage!=null) imgcount=parseInt(imgcountstorage); else imgcountstorage=0;
+//  imgCarde.forEach((elem)=>  {
+//      s+='<div class="card" style="width: 18rem;padding:2px;margin:6px" id="cardslist'+elem.id+'"><img src="'+elem.image+'" class="card-img-top" alt="..."> <div ><h6>'+elem.description+'</h6><p  >'+elem.prix+' DH</p><a href="#" class="btn btn-primary">Ajouter au panier</a></div></div>';
+//      imgcount+=1;
+//      if(imgcount-parseInt(imgcountstorage)==6) {sessionStorage.setItem('imgcountstorage',imgcount); break;}
+//  })
+ for (let index = imgcount; index < imgCarde.length; index++) {
+  const elem = imgCarde[index];
+  s+='<div class="card" style="width: 18rem;padding:2px;margin:6px" id="cardslist'+elem.id+'"><img src="'+elem.image+'" class="card-img-top" alt="..."> <div ><h6>'+elem.description+'</h6><p  >'+elem.prix+' DH</p><a href="#" class="btn btn-primary">Ajouter au panier</a></div></div>';
+     imgcount+=1;
+     if(imgcount-parseInt(imgcountstorage)==6) {sessionStorage.setItem('imgcountstorage',imgcount); break;}
+ }
+ document.getElementById("list").innerHTML=s;
+ document.getElementById("list").style.display="flex";
+ document.getElementById("list").style.flexWrap="wrap";
+ document.getElementById("list").style.justifyContent="space-around";
+//  paginate calcule
+ let png=imgCarde.length/6;
+   s='<a href="#" class="w3-button"><<</a>';
+   console.log(png);
+   let index = 0
+ for (index; index < png; index++) { 
+  let k=index+1;
+s+='<a href="#" class="w3-button">'+k+'</a>'; 
+ } s+='<a href="#" class="w3-button">>></a>';
+ document.getElementById('paginate').innerHTML=s;
+ // end paginate calcule
+ </script>
+  <!-- end section articles --> 
