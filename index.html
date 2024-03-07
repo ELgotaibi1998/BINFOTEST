@@ -97,24 +97,44 @@
   <br>
 </div>
   <!--  end section image 1 -->
+  <!-- Liste des articles -->
   <h5 style="margin-left: 4%;">Liste des articles</h5>
 <div id="list">   
 </div>
 <div class="w3-bar" id="paginate"></div>
+<!-- end Liste des articles --> 
+<br>
+  <!-- Les plus récents PC monté -->
+  <h5 style="margin-left: 4%;">Les plus récents PC monté</h5> <br>
+<div id="listmontage">   
+</div>
+
+<div class="w3-bar" id="paginateMontage"></div>
+<!-- end Les plus récents PC monté -->
+<br>
+  <!-- Portail -->
+  <h5 style="margin-left: 4%;">Portail</h5> <br>
+<div id="listmontage">   
+</div>
+
+<div class="w3-bar" id="paginateMontage"></div>
+<!-- end Portail -->
   </main>
   <br>
   <footer>
-    <div class="card" style="width: 100%;background-color: gray; " >
+    <div class="card" style="width: 100%;background-color: gray; " > 
+      <div class="card-body">
+        <iframe width="100%" height="300px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.5092800685816!2d-5.0111627!3d34.005136199999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd9f8ba9ba22827f%3A0x799f9579c5eac57!2sB-info(Services%20Informatique)!5e0!3m2!1sfr!2sma!4v1709846814026!5m2!1sfr!2sma"></iframe>
+      </div>
+        <!-- <div class="card-body" style="width: 100%;text-align: center;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.5092800685816!2d-5.0111627!3d34.005136199999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd9f8ba9ba22827f%3A0x799f9579c5eac57!2sB-info(Services%20Informatique)!5e0!3m2!1sfr!2sma!4v1709846814026!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div> -->
       <div class="card-header" style="width: 100%;text-align: center;">
         <h5 class="card-title" style="width: 100%;text-align: center;">©B-INFO</h5>
         <!-- <p class="card-text" style="width: 100%;text-align: center;"><span></span> With supporting text below as a natural lead-in to additional content.</p> -->
         <a href="#" class="btn btn-secondary"  >Vers haut</a>
       </div>
-      <!-- <div class="card-body" style="width: 100%;text-align: center;">
-        <h5 class="card-title" style="width: 100%;text-align: center;">©B-INFO</h5>
-        <p class="card-text" style="width: 100%;text-align: center;"><span></span> With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-secondary"  >Vers haut</a>
-      </div> -->
+   
       <div class="card-footer text-body-secondary" style="width: 100%;text-align: center;" >
        Depuis 2013
       </div>
@@ -265,17 +285,12 @@ setInterval(()=>{
  let imgcountstorage=sessionStorage.getItem("imgcountstorage");
  console.log(imgcountstorage);
  if(imgcountstorage!=null) imgcount=parseInt(imgcountstorage); else imgcountstorage=0;
-//  imgCarde.forEach((elem)=>  {
-//      s+='<div class="card" style="width: 18rem;padding:2px;margin:6px" id="cardslist'+elem.id+'"><img src="'+elem.image+'" class="card-img-top" alt="..."> <div ><h6>'+elem.description+'</h6><p  >'+elem.prix+' DH</p><a href="#" class="btn btn-primary">Ajouter au panier</a></div></div>';
-//      imgcount+=1;
-//      if(imgcount-parseInt(imgcountstorage)==6) {sessionStorage.setItem('imgcountstorage',imgcount); break;}
-//  })
+
  for (let index = imgcount; index < imgCarde.length; index++) {
   const elem = imgCarde[index];
   s+='<div class="card" style="width: 18rem;padding:2px;margin:6px" id="cardslist'+elem.id+'"><img src="'+elem.image+'" class="card-img-top" alt="..."> <div ><h6>'+elem.description+'</h6><p  >'+elem.prix+' DH</p><a href="#" class="btn btn-primary">Ajouter au panier</a></div></div>';
      imgcount+=1;
      if(imgcount-parseInt(imgcountstorage)==6) {  break;}
-    //  if(imgcount-parseInt(imgcountstorage)==6) {sessionStorage.setItem('imgcountstorage',imgcount); break;}
  }
  document.getElementById("list").innerHTML=s;
  document.getElementById("list").style.display="flex";
@@ -283,17 +298,59 @@ setInterval(()=>{
  document.getElementById("list").style.justifyContent="space-around";
 //  paginate calcule
  let png=imgCarde.length/6;
-   s='<a href="#" class="w3-button"><<</a>';
+   s='<a href="#" class="w3-button" onclick="paginate(this)"><<</a>';
    console.log(imgCarde.length/parseInt(imgcountstorage));
    let index = 0
  for (index; index < png; index++) { 
-  let k=index+1;
-  if(imgcountstorage==0 && k==1) s+='<a href="#" class="btn  btn-secondary"  >'+k+'</a>'; 
- else if((parseInt(imgcountstorage)+1)/6<=k && (parseInt(imgcountstorage)+1)/6>k-1)
-s+='<a href="#" class="btn   btn-secondary" >'+k+'</a>'; 
-else s+='<a href="#" class="w3-button"  >'+k+'</a>'; 
- } s+='<a href="#" class="w3-button">>></a>';
+  let k=index+1; 
+  if((parseInt(imgcountstorage)+1)/6<=k && (parseInt(imgcountstorage)+1)/6>=k-1)
+s+='<a href="#" class="btn btn-secondary"  onclick="paginate(this)"  >'+k+'</a>'; 
+else s+='<a href="#" class="w3-button" onclick="paginate(this)" >'+k+'</a>'; 
+ } s+='<a href="#" class="w3-button" onclick="paginate(this)">>></a>';
  document.getElementById('paginate').innerHTML=s;
  // end paginate calcule
+ //paginate
+function paginate(params) {
+  let k=params.innerHTML-1; 
+  if(!isNaN(k)){
+  sessionStorage.setItem("imgcountstorage",k*6);}
+  else { 
+    if(params.innerHTML=="&gt;&gt;"){
+    
+    if(sessionStorage.getItem("imgcountstorage")==null){
+      sessionStorage.setItem("imgcountstorage",6);
+    }
+    
+    else{ if(imgCarde.length >=6*((parseInt(sessionStorage.getItem("imgcountstorage"))/6)+1)) sessionStorage.setItem("imgcountstorage",6*((parseInt(sessionStorage.getItem("imgcountstorage"))/6)+1));
+  }
+    
+  }
+  else {
+    if(sessionStorage.getItem("imgcountstorage")==imgCarde.length){
+      sessionStorage.setItem("imgcountstorage",imgCarde.length-6);
+    }
+    
+    else{ if(0 <=6*((parseInt(sessionStorage.getItem("imgcountstorage"))/6)-1)) sessionStorage.setItem("imgcountstorage",6*((parseInt(sessionStorage.getItem("imgcountstorage"))/6)-1));
+  }}
+  }
+  location.reload(); 
+}
+ //end paginate
  </script>
   <!-- end section articles --> 
+  <!-- les plus recent pc monte -->
+  <script>
+    let video1=[{id:0,urlV:"https://www.youtube.com/embed/xSgqUN5y-W8"},{id:1,urlV:"https://www.youtube.com/embed/h1_Dbj696b4"},{id:2,urlV:"https://youtube.com/embed/yRcFM1XAL_Q"}];
+      s=""; 
+ for (let index = video1.length-1; index > video1.length-6; index--) {
+  const elem = video1[index];
+ console.log( elem);
+  s+='<div  class="w3-card-4"  ><iframe  src="'+elem.urlV+'" title="TOP 5 : Meilleur PC Fixe GAMER, Ordinateur De Bureau Gaming 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div >'; 
+    if(index==0)break;
+ }
+ document.getElementById("listmontage").innerHTML=s;
+ document.getElementById("listmontage").style.display="flex";
+ document.getElementById("listmontage").style.flexWrap="wrap";
+ document.getElementById("listmontage").style.justifyContent="space-around";
+ 
+  </script> 
