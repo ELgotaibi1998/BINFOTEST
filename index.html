@@ -274,7 +274,8 @@ setInterval(()=>{
   const elem = imgCarde[index];
   s+='<div class="card" style="width: 18rem;padding:2px;margin:6px" id="cardslist'+elem.id+'"><img src="'+elem.image+'" class="card-img-top" alt="..."> <div ><h6>'+elem.description+'</h6><p  >'+elem.prix+' DH</p><a href="#" class="btn btn-primary">Ajouter au panier</a></div></div>';
      imgcount+=1;
-     if(imgcount-parseInt(imgcountstorage)==6) {sessionStorage.setItem('imgcountstorage',imgcount); break;}
+     if(imgcount-parseInt(imgcountstorage)==6) {  break;}
+    //  if(imgcount-parseInt(imgcountstorage)==6) {sessionStorage.setItem('imgcountstorage',imgcount); break;}
  }
  document.getElementById("list").innerHTML=s;
  document.getElementById("list").style.display="flex";
