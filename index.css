@@ -87,11 +87,12 @@ opacity: 0.6;
      min-width: 350px;
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
      text-align: center;
+     padding: 10px;
  }
  .card img{
      height: 200px;
  }
- .card:hover{
+ #list .card:hover{
     width: 31%; 
     height: 340px;
     /* background-color: rgb(84, 83, 85); */
