@@ -97,27 +97,15 @@
   <br>
 </div>
   <!--  end section image 1 -->
+  <a class="btn btn-secondary" style="margin-left: 2%;" href="./index.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+  </svg></a>
   <!-- Liste des articles -->
-  <h5 style="margin-left: 4%;">Liste des articles</h5>
-<div id="list">   
+  <h5 style="margin-left: 4%;" id="titre"></h5>
+<div id="article">   
 </div>
-<div class="w3-bar" id="paginate"></div>
-<!-- end Liste des articles --> 
-<br>
-  <!-- Les plus récents PC monté -->
-  <h5 style="margin-left: 4%;">Les plus récents PC monté</h5> <br>
-<div id="listmontage">   
-</div>
-
-<div class="w3-bar" id="paginateMontage"></div>
-<!-- end Les plus récents PC monté -->
-<br>
-  <!-- Portail -->
-  <h5 style="margin-left: 4%;">Portail</h5> <br>
-<div id="listPortail">   
-</div>
+ <br>
  
-<!-- end Portail -->
   </main>
   <br>
   <footer>
@@ -139,7 +127,7 @@
       </div>
     </div>
   </footer>
-  
+
 </body>
 </html>
 <style>
@@ -279,97 +267,19 @@ setInterval(()=>{
  <!-- section articles -->
  <script>
   let imgCarde=        [{id:0,image:"./images/img1.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:" PC HP",prix:0},{id:1,image:"./images/img2.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:"PC HP",prix:0},{id:2,image:"./images/img2.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:"PC HP",prix:0},{id:3,image:"./images/img3.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:"PC HP",prix:0},{id:4,image:"./images/img4.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:"UNITE CENTRALE LENOVO",prix:0},{id:5,image:"./images/img5.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:"Disques dure SSD ",prix:0},{id:6,image:"./images/img6.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:"PC HP",prix:0},{id:7,image:"./images/img7.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:"PC HP",prix:0},{id:8,image:"./images/img8.jpg",description:"Disques dure SSD",designation:"PC HP",prix:0},{id:9,image:"./images/img9.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:"THINKPAD ",prix:0},{id:10,image:"./images/img10.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:"  HP",prix:0},{id:1,image:"./images/img11.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:"PC LENOVO",prix:0},{id:11,image:"./images/img12.jpg",description:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt officia ad consequuntur, nihil provident et, quia distinctio tempora eligendi delectus quos perferendis odio exercitationem eius laborum rerum ea consequatur?",designation:"CARTES GRAPHIQUE",prix:0}];
- let s="";
- let imgcount=0;
- let imgcountstorage=sessionStorage.getItem("imgcountstorage");
- console.log(imgcountstorage);
- if(imgcountstorage!=null) imgcount=parseInt(imgcountstorage); else imgcountstorage=0;
-
- for (let index = imgcount; index < imgCarde.length; index++) {
-  const elem = imgCarde[index];
-  s+='<div class="card" style="width: 18rem;padding:2px;margin:6px" id="cardslist'+elem.id+'"><img src="'+elem.image+'" class="card-img-top" alt="..."> <div ><h6>'+elem.designation+'</h6><p  >'+elem.prix+' DH</p><a href="./detailArticle.html?id='+elem.id+'" class="btn btn-primary">Détail</a></div></div>';
-     imgcount+=1;
-     if(imgcount-parseInt(imgcountstorage)==6) {  break;}
- }
- document.getElementById("list").innerHTML=s;
- document.getElementById("list").style.display="flex";
- document.getElementById("list").style.flexWrap="wrap";
- document.getElementById("list").style.justifyContent="space-around";
-//  paginate calcule
- let png=imgCarde.length/6;
-   s='<a href="#" class="w3-button" onclick="paginate(this)"><<</a>';
-   console.log(imgCarde.length/parseInt(imgcountstorage));
-   let index = 0
- for (index; index < png; index++) { 
-  let k=index+1; 
-  if((parseInt(imgcountstorage)+1)/6<=k && (parseInt(imgcountstorage)+1)/6>=k-1)
-s+='<a href="#" class="btn btn-secondary"  onclick="paginate(this)"  >'+k+'</a>'; 
-else s+='<a href="#" class="w3-button" onclick="paginate(this)" >'+k+'</a>'; 
- } s+='<a href="#" class="w3-button" onclick="paginate(this)">>></a>';
- document.getElementById('paginate').innerHTML=s;
- // end paginate calcule
- //paginate
-function paginate(params) {
-  let k=params.innerHTML-1; 
-  if(!isNaN(k)){
-  sessionStorage.setItem("imgcountstorage",k*6);}
-  else { 
-    if(params.innerHTML=="&gt;&gt;"){
-    
-    if(sessionStorage.getItem("imgcountstorage")==null){
-      sessionStorage.setItem("imgcountstorage",6);
-    }
-    
-    else{ if(imgCarde.length >=6*((parseInt(sessionStorage.getItem("imgcountstorage"))/6)+1)) sessionStorage.setItem("imgcountstorage",6*((parseInt(sessionStorage.getItem("imgcountstorage"))/6)+1));
-  }
-    
-  }
-  else {
-    if(sessionStorage.getItem("imgcountstorage")==imgCarde.length){
-      sessionStorage.setItem("imgcountstorage",imgCarde.length-6);
-    }
-    
-    else{ if(0 <=6*((parseInt(sessionStorage.getItem("imgcountstorage"))/6)-1)) sessionStorage.setItem("imgcountstorage",6*((parseInt(sessionStorage.getItem("imgcountstorage"))/6)-1));
-  }}
-  }
-  location.reload(); 
-}
- //end paginate
+ let args=location.search;
+ args.strike();
+ let arg=args.split("=");
+ let id=arg[1];
+ let article;
+ if(!isNaN(id)){
+    article=imgCarde.find((e)=>e.id==id);
+ } 
+let  s='<div id="art" class="card mb-6" style=" width: 90%;margin:2%;padding-top:10px">  <div class="row g-0">    <div class="col-md-4">      <img src="'+article.image+'" class="img-fluid rounded-start" alt="...">    </div>    <div class="col-md-8">      <div class="card-body">        <h6 class="card-title">'+article.designation+'</h6>        <p class="card-text">'+article.description+'</p>  <p>'+article.prix+' DH</p>     <div> <a class="btn btn-success" style="float:right"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0"/></svg></a> </div>       </div>    </div>  </div></div>';
+ 
+ document.getElementById("article").innerHTML=s;
+ 
+ 
  </script>
   <!-- end section articles --> 
-  <!-- les plus recent pc monte -->
-  <script>
-    let video1=[{id:0,urlV:"Facebook 216517121356416(HD).mp4",designation:"designation"},{id:1,urlV:"Facebook 348471164754596(HD).mp4",designation:"designation"},{id:2,urlV:"Facebook 373532718594055(HD).mp4",designation:"designation"}];
-      s=""; 
- for (let index = video1.length-1; index > video1.length-6; index--) {
-  const elem = video1[index];
- console.log( elem);
-  // s+='<div  class="w3-card-4"  ><iframe  src="'+elem.urlV+'" title="TOP 5 : Meilleur PC Fixe GAMER, Ordinateur De Bureau Gaming 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div class="w3-container w3-center">    <p>'+elem.designation+'</p>  </div></div >'; 
-    s+='<div  class="w3-card-4" width=" 30%" ><video controls style=" height:250px;width:300px"  title="   PC Fixe GAMER, Ordinateur De Bureau Gaming 2023"    autoplay muted  ><source src="./videos/'+elem.urlV+'" type="video/ogg"><source src="./videos/'+elem.urlV+'" type="video/mp4"></video><div class="w3-container w3-center">    <p>'+elem.designation+'</p>  </div></div >'; 
-    if(index==0)break;
- }
- document.getElementById("listmontage").innerHTML=s;
- document.getElementById("listmontage").style.display="flex";
- document.getElementById("listmontage").style.flexWrap="wrap";
- document.getElementById("listmontage").style.justifyContent="space-around";
- 
-  </script> 
-  <!-- end les plus recent pc monte -->
-   <!-- portail -->
-   <script>
-    let video2=[{id:0,urlV:"Facebook 611302004464979(HD).mp4",designation:"designation"},{id:1,urlV:"Facebook 934002631029360(HD).mp4",designation:"designation"},{id:2,urlV:"Facebook 1025147055385682(HD).mp4",designation:"designation"},{id:3,urlV:"Facebook 6057569817681210(SD).mp4",designation:"designation"}];
-      s=""; 
- for (let index = video2.length-1; index > video2.length-6; index--) {
-  const elem = video2[index];
- console.log( elem);
-  // s+='<div  class="w3-card-4"  ><iframe  src="'+elem.urlV+'" title="TOP 5 : Meilleur PC Fixe GAMER, Ordinateur De Bureau Gaming 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div class="w3-container w3-center">    <p>'+elem.designation+'</p>  </div></div >'; 
-    s+='<div  class="w3-card-4" width=" 30%"  style="margin:10px"><video controls style=" height:250px;width:300px"  title="   Portail"    autoplay muted  ><source src="./videos/'+elem.urlV+'" type="video/ogg"><source src="./videos/'+elem.urlV+'" type="video/mp4"></video><div class="w3-container w3-center">    <p>'+elem.designation+'</p>  </div></div >'; 
-    if(index==0)break;
- }
- document.getElementById("listPortail").innerHTML=s;
- document.getElementById("listPortail").style.display="flex";
- document.getElementById("listPortail").style.flexWrap="wrap";
- document.getElementById("listPortail").style.justifyContent="space-around";
- 
-  </script> 
-  <!-- end portail -->
+  
